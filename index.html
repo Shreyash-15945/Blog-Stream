@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://kit.fontawesome.com/879122160e.js" crossorigin="anonymous">
+
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
+            box-sizing: border-box;
+
+        }
+
+        :root {
+            --container-color: black;
+            --second-color: rgb(236, 239, 224);
+            --text-color: black;
+            --bg-color: rgb(114, 160, 217);
+
+        }
+
+        ::selection {
+            color: var(--bg-color);
+            background: var(--second-color);
+
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        /*-----------------header------------------*/
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 200;
+        }
+
+        header.shadow {
+            background: var(--bg-color);
+            box-shadow: 0 1px 4px black;
+            transition: 0.5s;
+
+        }
+
+        header.shadow.logo {
+            color: var(--text-color);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 600;
+            color: rgb(221, 102, 17);
+        }
+
+        .logo span {
+            color: var(--second-color);
+        }
+
+        .login {
+            padding: 8px 14px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-radius: 4px;
+            background: var(--second-color);
+            color: var(--bg-color);
+            margin-right: 25px;
+        }
+
+        .login:hover {
+            background: rgb(12, 139, 198);
+            transition: 0.5s;
+            color: black;
+        }
+
+        .home {
+            width: 100%;
+            min-height: 400px;
+            background-image: url(https://images.unsplash.com/photo-1619426017013-0d6db7b74d1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZGVyJTIwaW1hZ2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60);
+            background-size: cover;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-text {
+            color: #e17216e6;
+            text-align: center;
+        }
+
+        .home-title {
+            font-size: 3.5rem;
+
+        }
+
+        .home-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .about {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about .contentbox {
+            max-width: 50%;
+            text-align: left;
+            padding-right: 40px;
+        }
+
+        .titleText {
+            font-weight: 600;
+            color: black;
+            font-size: 2rem;
+            margin-bottom: 10px;
+
+        }
+
+        .title-text {
+            color: black;
+            font-size: 1.5rem;
+        }
+
+        .about .imgbx {
+            position: relative;
+            min-width: 50%;
+
+            min-height: 500px;
+        }
+
+        .btn2 {
+            position: relative;
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 30px;
+            text-decoration: none;
+            border: 2px solid rgb(192, 187, 187);
+            color: black;
+            background-color: rgb(255, 255, 255);
+            transition: 0.5s;
+        }
+
+        .btn2:hover {
+            background-color: rgba(104, 143, 232, 0.783);
+
+        }
+
+        .post-filter {
+
+            margin-left: 40%;
+            word-spacing: 20px;
+            color: black;
+            font-size: 20px;
+
+        }
+
+
+        .post-filter span:hover {
+            padding: 5px;
+            background-color: rgb(108, 190, 238);
+            color: rgb(54, 34, 34);
+            transition: 0.5s;
+
+        }
+
+        .post {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            width: 1100px;
+            flex-wrap: wrap;
+            margin-left: 10%;
+
+        }
+
+        .post-box {
+            flex-basis: 30%;
+            border: 1px solid lightgray;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 6px 6px 6px gray;
+
+
+        }
+
+        .post-title {
+            text-decoration: none;
+            font-weight: bold;
+            color: rgb(74, 26, 74);
+            font-size: 18px;
+        }
+
+        .post-box img {
+            border-radius: 8px;
+            box-shadow: 6px 6px 6px gray;
+        }
+
+        footer {
+            margin-top: 20px;
+            background-color: rgb(49, 125, 160);
+            color: white;
+            padding: 40px 100px;
+            position: relative;
+            justify-content: space-between;
+            height: auto;
+            width: 100%;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 35px;
+
+        }
+
+        .footer-container .about p {
+
+            margin-top: 0;
+            font-size: 15px;
+        }
+
+        .footer-container h2 {
+            position: relative;
+            margin-bottom: 25px;
+            color: lightgray;
+        }
+
+        .footer-container h2::before {
+            content: '';
+            position: absolute;
+            height: 3px;
+            bottom: -6px;
+            background-color: rgb(177, 61, 169);
+            left: 0;
+
+            width: 75px;
+        }
+
+        .sci {
+            margin: 20px;
+            display: flex;
+        }
+
+        .sci li a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+
+            color: white;
+            font-size: 25px;
+        }
+
+        .footer-container .about {
+            margin-left: 30px;
+            width: 30%;
+            display: inline-table;
+
+        }
+
+        .footer-container .quicklinks ul li {
+            list-style: none;
+        }
+
+        .footer-container .quicklinks ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: medium;
+        }
+
+        .footer-container .contact li {
+            display: flex;
+        }
+
+        .footer-container .contact ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: medium;
+        }
+
+        .footer-container .contact li span {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <a href="#" class="logo">B<span>logger</span></a>
+            <a href="#" class="login">Sign Up</a>
+        </div>
+    </header>
+    <section class="home" id="home">
+        <div class="home-text container">
+            <h2 class="home-title">Blog Stream</h2>
+            <span class="home-subtitle">Journey Beyond Boundaries</span>
+        </div>
+    </section>
+
+    <section class="about container" id="about">
+        <div class="contentbox">
+            <h2 class="titleText">Break your comfort zone and discover new horizons...</h2>
+            <p class="title-text">
+                This empowering statement encourages embracing challenges beyond familiarity to unlock unexplored
+                opportunities. Embrace growth by venturing into uncharted territories, paving the way for personal and
+                professional development, and unveiling the wonders of undiscovered possibilities.
+            </p>
+            <a href="#" class="btn2">Read more</a>
+        </div>
+        <div class="imgbx">
+            <img src="https://images.unsplash.com/photo-1494959764136-6be9eb3c261e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                class="fitbx">
+        </div>
+
+    </section>
+    <div class="post-filter container">
+        <span data-filter="all" class="filter-item active-filter">All </span>
+        <span data-filter="tech" class="filter-item">Tech</span>
+        <span data-filter="sports" class="filter-item">Sports</span>
+        <span data-filter="news" class="filter-item">News</span>
+    </div>
+    <div class="post container">
+
+        <div class="post-box tech">
+            <img src="https://images.indianexpress.com/2023/08/iPhone-13-Express-Photo.jpg?w=640">
+            <h2>Tech</h2>
+            <a href="#" class="post-title">India is now among Apple's top 5 markets: Counterpoint research</a><br>
+            <span class="post-date"> 1 Aug 2023</span><br>
+            <p>The Indian smartphone market has seen a 3 per cent decline in the second quarter of the year, but the
+                premium and ultra-premium smartphone segment has experienced a massive 12 per cent growth contributing
+                to 17 per cent of overall shipments.</p>
+
+        </div>
+
+        <div class="post-box tech">
+            <img src="https://www.blendb2b.com/hubfs/BLD%20techncial%20blog.jpeg">
+            <h2>Tech</h2>
+            <a href="#" class="post-title"> Robotic Process Automation (RPA)</a><br>
+            <span class="post-date">2 Aug 2023</span><br>
+            <p>Robotic process automation (RPA) is a software technology that makes it easy to build, deploy, and manage
+                software robots that emulate humans actions interacting with digital systems and software. Just like
+                people, software robots can do things like understand what’s on a screen, complete the right keystrokes,
+                navigate systems, identify and extract data, and perform a wide range of defined actions. But software
+                robots can do it faster and more consistently than people, without the need to get up and stretch or
+                take a coffee break.</p>
+
+        </div>
+
+        <div class="post-box tech">
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ-BIKiAlu1W9TcQxqsYSz70O10vobEEdTcjeXygP1oQ&s">
+            <h2>Tech</h2>
+            <a href="#" class="post-title"> Artificial intelligence</a><br>
+            <span class="post-date">1 Aug 2023</span><br>
+            <p>Artificial intelligence (AI) is the intelligence of machines or software, as opposed to the intelligence
+                of human beings or animals. AI applications include understanding human speech (such as Siri
+                and Alexa), self-driving cars (e.g., Waymo), generative or creative tools (ChatGPT and AI art), and
+                competing at the highest level in strategic games (such as chess and Go)</p>
+
+        </div>
+
+        <div class="post-box tech">
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ17a3c5iDV-hnmpDNd7IDq_bXDZTPnQqGhA&usqp=CAU">
+            <h2>Tech</h2>
+            <a href="#" class="post-title"> Virtual Reality (VR) and Augmented Reality (AR)</a><br>
+            <span class="post-date">6 Aug 2023</span><br>
+            <p>VR and AR have been popular for almost a decade now. Virtual Reality immerses the user into a new
+                environment, while Augmented Reality enhances the user’s existing environment. While their applications
+                so far have been majorly linked with gaming and filters on social media, simulation software such as
+                Virtual Ship is also used to train the US Navy, Army and Coast Guard ship captains.</p>
+
+        </div>
+
+        <div class="post-box tech">
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAmaOcQfAjwFjaSNLAESyBueRgIigF2JVMIO0cyA6bWSoKtRWp-w8WiLAgowhRf45w1xQ&usqp=CAU">
+            <h2>Tech</h2>
+            <a href="#" class="post-title">Edge Computing</a><br>
+            <span class="post-date">2 Aug 2023</span><br>
+            <p>Edge Computing helps to bypass the latency that Cloud Computing causes and helps organisations to get
+                data into a data centre for processing. It can exist ‘on edge’, in the sense that it is closer to where
+                the data processing will ultimately take place. Edge Computing is used to process time-sensitive data in
+                far-off locations with limited or no connectivity.</p>
+
+
+        </div>
+
+        <div class="post-box sports">
+            <img src="https://images.indianexpress.com/2023/07/Bumrah-1-1.jpg?w=640">
+            <h2>Sports</h2>
+            <a href="#" class="post-title">Jasprit Bumrah makes comeback as skipper in t20 series in Ireland.</a><br>
+            <span class="post-date">2 Aug 2023</span><br>
+            <p>Bumrah’s comeback, in time for the World Cup, will be good news for the hosts as his pace and nous could
+                be the X-factor on Indian pitches that are not traditionally too helpful for faster bowlers. Most of the
+                venues where India will play the other top teams are known to favour spin more.
+            </p>
+
+        </div>
+
+        <div class="post-box sports">
+            <img src="https://images.indianexpress.com/2023/08/pRANNOY-sEN.jpg?resize=728,405">
+            <h2>Sports</h2>
+            <a href="#" class="post-title">HS Prannoy moves to 9th, Lakshya sen jumps to 11th in Bwf ranking.</a><br>
+
+            <span class="post-date">2 Aug 2023</span><br>
+            <p>Star Indian shuttlers HS Prannoy and Lakshya Sen on Tuesday jumped to the ninth and 11th spots
+                respectively in the latest BWF world rankings following semifinal finishes at Japan Open Super 750
+                badminton tournament.While Prannoy gained one spot, Sen improved two places after they lost in the
+                semifinals in three
+                hard-fought games against Denmark’s Viktor Axelsen and Indonesia’s Jonatan Christie respectively in
+                Tokyo last week.</p>
+
+        </div>
+
+        <div class="post-box sports">
+            <img
+                src="https://static.toiimg.com/thumb/msid-102328702,imgsize-59590,width-400,resizemode-4/102328702.jpg">
+            <h2>Sports</h2>
+            <a href="#" class="post-title">India outclass West Indies by 200 runs seal the series 2-1</a><br>
+            <span class="post-date">2 Aug 2023</span><br>
+            <p>Hosts still 209 behind with five first innings wickets standing going into last two days.A feature of top
+                teams is that they make things happen when a game is drifting or proceedings are not going their way.
+                This facet of the Indian team came to the fore on Day 3 of the second Test against the West Indies at
+                Port of Spain in Trinidad on Saturday.</p>
+
+        </div>
+
+        <div class="post-box sports">
+            <img src="https://images.indianexpress.com/2023/08/IND-footballers.jpg?w=640">
+            <h2>Sports</h2>
+            <a href="#" class="post-title">Sunil chhetri, Sandesh jhingan, Gurpreet singh sandhu named in indian
+                football team for Asian Games.</a><br>
+            <span class="post-date">1 Aug 2023</span><br>
+            <p>Talisman Sunil Chhetri, senior defender Sandesh Jhingan and first-choice goalkeeper Gurpreet Singh
+                Sandhu were on Tuesday named in a 22-member Indian men’s football squad for the upcoming Asian Games.
+
+                In Hangzhou, China, the host city for the Games, the Indian squad will be under the charge of national
+                senior team head coach, Igor Stimac.</p>
+
+        </div>
+
+
+
+        <div class="post-box news">
+            <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgWFhYYGBgZGBoaHBgaHBwYHBoYGBwaGhwYGhgcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHxISHjQrJSs9NDc0NjQ0NDQ0NDQ0NjQ0NDQ0NDY0NDQ0NDQ0NjQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAMIBAwMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgABB//EAEEQAAIBAwMBBQUGAwcDBAMAAAECEQADIQQSMUEFIlFhcQYTMoGRQlKhscHwFLLRFSMzYnKCksLh8QckouJDc9L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAgMBBAX/xAAqEQADAAICAQMCBgMBAAAAAAAAAQIDESExEgRBURMyFCJCYXGRgaGxI//aAAwDAQACEQMRAD8A0sVDWxtLfdBP4VTrtWFMCgNXrSEfP2G/lNakB887btFbyzYXaucCdywY3lY3QFInmBk19F9nr/u9OqLj4vu/FuMnu458MCsD2joVa4pZ2ZOCDGIJXkQSpI+h5rVdhErZQHnvfizGhLbGp8Gh98etQZ6AbU16NTTeIgUyTVD2BXLfqYvigCp9NFDPaNG/xNRdgaEACLdeHT0USKmDWgL/AOHNTTSk0eIo3RBZk1mwFDaQjpUDbAyeBk1p9QyEdKzfazgQB1/Ss2boCGpBbiB+/GrppUWg01siVB8q3YNaPd1TV6gUr0W60wvR6KtvQtu3RSCsALR6tF2hAaktABYerrRoa2tFbaAOd6+c+3nvQzxci24TuGAJETtYZmVUwehOcRX0Nqw3txpy2Qm7YqM3OVZnUCR4GMHHePoVpcDT2Wex5dlAN0XBswAI2EbO4x+0QrLnHJGemtXTE1m/YhDCf3PuwUcSeSQyN1O6O+efCt3prNaugfYrTSmvDp4p97qcAVRf09GzBTivaI9zXUAZa5d3UJr7hFt452mOuYxViChO0H2oxieMePeFOYZ7tBHe8EUgblmYmVUZbmDxH+3pWi7KuEWk3clZ8Oc8dKy2pubL4wW2gCQAMHJknjBYT51pdK8onmi/yikns2uEg/3teh6D3VNHqggVvqSvVG6pKaw3YTurzfVBeoG5QaEF69W9Q2+pLQYFreq1L1ACrbRrNGhjOfGlnaD5WfCjd1B610EM7BVHUkAfU0ltJbY8LyrQksF97BjIHmDzkfZHTz+tP9AQUBGR09KVDX6ViQLizx8UT6E8040CQigcdPTpSY729aKZYaW9hAWpBK5TVoNWIHIlTC14XiuVpNb4szZakDmvWevGSpLbk4rDQrTZot0gYzUtHoz6eNU699kiZAAn60JbejG9EHxWU9tdUEUgAklF4G7ActkeZCSfCadvqgduOelZn2wvKYZefc3ljzYAAz0g01S0gm03oK7E7UAS2RILSu2CNuwNgz1MzjHHnWm7P7VZsY9OtYXSupcBVhQ7ZgiW2sOufhKCOkEdKd6O/s45qsYlUkbyOa17G202rCltxwPGqdb2whwDWW/inOJzNNOy+xmuN31dRzwRPnJpXimeaZqyOuJQbb7QQgGa6mn9h2xgE48c11S3JTk+e26F7RACEn7y/wAwqYeh9YZXP3gfmDuH4iiujUZ/UN32kAMRtOAMsBLDwzJ9DT3TfAn+lfyFJL1lHdpzK4PPeIJ/r9KfooAAHAEfSll8j0uD2vVNRNeinE0TJrg9RIrygNEy9eqJqAqSvQaemvQa6pKs0CnBqtQ14turAlBqR6rUk9o+z1vFNxIC7sDrO2PLoadxQPaYyPT9aWuh57Mrd7Gt4A3Dzmf0rcdmW9lpFmYRRPoBWbuDvCtNp/hX/SPypI7GoKFcLlUF6nZtlqronsr1rt9mrNCpgFp8ZovTaUO6IZ7xAxzHWnGp7FAMKWM+MY5xVPNJeJPx3WwEQaM0iCRH7NLtaPdkLwP0pl7OFTucpgEwx8ppanjYyrnQ07yc9BnpWa7VFwudgLLzgcAeJ+taPUXEcwTtB5PBIobXdoWraFUyTzHkPtH9KzG2nwtmWtrl6MazPAbpOD5ikftBYV9pcAgJd56GFIP1/OtDrdUXPlzAwP3ikfbKEqoXkttz5wRPzUV12tw9o5sb1a0xd2WAAmTO/cOeSArcnM71/GnwpD2TYOxT1L224ztDA7eekz86+g9j+y73O88opWRPMk4x6Z+YpMVzEbY2WKqtII9j+yXZ/eupCAd2cbieMdRW1e6ErlhBHQCB6DFLdTcLGuS7dVtnTEKZ0EfxldS3ZXVMofMw9V6kiBPjJ9AD+sVWr1VfeSB5fqP6VSnwJK5F96x3mYkzj5kmD1p2HpK9wT1PyPHn9aZLcwPSkhoevYI3VINQu+pB6rsQKU17FUC5Ug9GwJ16tQ3V6GoAtq1DFDB6kHoAORxUxcoFDRCsFG5iAPEmB9TQai0gBSzcUp7T1EqrDiWU+o2n/qFMNZfDhdsEQDPjIkH6UldWZ9mAB3+OrQD8u6KjdorMPsC96dw9a0Wm1q7VWZO1ZjgSOKWrolMw2V/MxiKj2eGbcTmG2z5J3R+ApZtJjVD0avS6MuYAmmut03ubIJBkkeQ9CfPwr32MvBkZSO8kZ8VMx9IP4VqbypcXa6yOoIqqvkhUvozns7pw7hmmYBHgB+pNapwAamiKoEQBED0FU33AzWVW3sEtIz+q7AHvfecgnCHOSMnPnVTo6gqgO0TuBG1R5jxp+mok4FR16bkIb7XTmmVv3F8UujIrqG7xZpCgkR4+FJHvsxM9a1L+zZ6PyRI4EeFHXewLTLEQx+14enjXRGWJI1jqjDDNX63sS46WdohrlwqN0hZ2OVBgEz3D9RW50/YiAoQo7hGSMmM1Lt+8EQRErudQftMowMZyW59aXLn8l4ybjweL2zB+yNoIju6Dfb92QxMgBXCuIKjvTtxJyBFfS72q6Cvn/YyFtyBtwV3a4x2wRb7m6F5LFw3MbkHjNby0wdEYZ3IrfUA1y72dJBmJ61U4jiiGWhrzRQBTNeV3uya6m0B8hW5VV2+skHxg/gf+ofWvHBjHNKG3ncTIkngbv/l4R1itpmQtjC3eDH1jzyQTH5/SikfA9BWeW4wPxTkeZ9ccRTfQMxUFhHgKWWhrQYHqQuVXFdtqhMuFypK9UhKkFrACEerQ9CqtSJIBMcA49OlABIqu7rETDMJ+6MmfQcfOszd7Sd8EkjOB3R84yT86oDse6DB+6g3HAgfDz6+vzm8vwXWL5Huo7aaO6AggZbvNkwO7x59aT39czmWJYyCJMxHSOInyozRdg3njbb2jGbh2iOo2Dvc/pTLUdgHTILjuGzthV2gCCZ5lj61J+XbHXiuENdIn93b/ANCfyihxi6wAkhAR0kyYE/L8aLLHYhWRK2+BJg7Zx0EfShXSb7f6B5dT4UtPkpPRXp3O+MTmRL9IBPew2Sc1foF+Pp32qxrPp+I/GqNFOy5DEEM2Y3ERkiDz4UNmpGy9hjD3QeCgP0P/ANq1TOvSsd7HuVuuCRm2ZPGQyf8AetXbUMarPRy39xJr8daib4PNSu6UHrVf8JHWnEJJezirL11gMLuboPD1NW2tOI4q8JQANaLYnk1e7x5CpdcV4AJoAtLRWS9rlLm0uDJeZ4g7Fz/y468VprzdawvtD2utx2tIpZwjAqAWKw6kEx8M7BkkfEDQaCezunTTw+8bSbrHbuM21dgCpLcQgPmBGZzueyE2WUQiNkpHgEYqo/4gV83vdsPeuQlp9qXySjsEJk3X2GF2hc5EgE24xM1qewO30LPadHRw6wjCX2siANCzuyCSR5nilWge+zRai7FB3LbPkGPOvNReBZVPWvJdyUWAoxVEtCthtsiBmvaq/gV6s1dWcGHx9rcAnwE/SgGskJIyIg+ROJ/T8a1Wt0a+6fpuAT5uQg/mqnUdmIyYKgKUVladyliqxIOPjmYEiOZopjyZB0He83WR5FQZ9cn6060emlAfNv5jXvYvYiu9wOFdkOFaSSAoMgEiPPIitl2B2MDbM/ffp0J3AfRhSS9DUZQaQ+FTXRHwrf8A9hDwq212GJ4qmyejD6bsd24Bq272Oy9K+mabRKixFU63RK4nANZ5Bo+XnRGvf4Stpd7Kk4FDt2Mea3YaMTd7EtsZKCZnGJ9QMGjNLogmFUKPBQB+VakaRVwRXq6VDWcDbfQu0GnoX22UDTKB98yf9jVo7ekXpWb/APURdumB/wAxE/7GpcnKY2PikDWrW63bBJ+C2cGOFU1SbM3mMfYX67jROnaLds4+C2MmOQoqotF8x9xZ9Nx61yZG98HbCWi5LEiSo8D6ihdJYxcExLNkcies+NHMxk5jM/X1obSPhzAEMTnAOJnPSpy63yO0tcDz2VtTfIP3Gz81rb2EA6VivZhwLxPQo2R6qfpWnTtJJIB4Nd0bcnBl4oZvaqkrFetdLAEUNcuEdJP4VogSb8VVe1J2yOahcHdHpSfX69kkKMDk08y29IWnpBaaq4JkY8fH08aLsawMOYNZi92oWXbPzqrSava1V+i2iX1Vs3F0iKx/tNpbT3RvWdlpWB6rudxO4QRkLkEGAR1pha7Z3QCPnWW9qdb/AHjwTm3bAYdDuuzg84Yfh1iJuGuyitPoWaC1ats/vtrbL/fBdnGzanTi58fxQTI860ej1PurpBVUa5bDMqqEC7HIChRx3XT15rF2BcV3liYuK24oJLzZbI6YAMR086d2d737UDLBkIxIG3cJyYgrHTM4oiFvbMuvg0y6qWkHJx8qe6YhUzGfD+vjSTR9nbe87DcMgdJ867VOzEIjHAzHEmq1Kp6RNU0tsY3NUknP411Zu5pmBOa9rfpT8mfVr4FHaN6FRYB3XBg8d1WcT5Sgr3XXdqK4LxuQsApKnY4O88biMjGIgdBV+oQb08QGIkSJ7oz+I+ZogqhQwNrQRtB+EQZ7p7vnMeNclM6kuhN7ParffdFUsfebhcKrs2iQVdxjaR0HhgGvoHs84IuyIPvSSJmGZLbMJ6wSf3msh2daS27SWaS8ZO2TcZh3cS0Ryc8087G1YQXAY3FwzEfeKKD6juisT2bSNarZ8qk9wCs6daT1rhqWPWm0KM9TrOimhP7RIEHPnQT3KFvXgOSB6mKNAHN2g3jVLaqPH6xQiGoXZmgCd28TVXvKGvaxE+J1Hzk/QVmdT227CAWOfsjZjMQMsenWsdpLkaYqukbO3qCOtZ//ANRNUz6ZF57/AIZPdP8A3pUp1KqznegKzLArneg4+LieaHv6u7qHRCRuUmCB6gyJjhZ4nzqLzy9pHRPp6Wm+jQbf7pPh+C38UxhQTx6fnU/cE3z4bB+ZonTrvRCQDKqcxzA8at/s+6H37GKkADKx1zz51zZbOiJ0D7JdlngAz6/+Kos2iA4O0888RHBH6Zoi2WN14WTtAiRyJmDwatt6K4A52Mu6cttgNHMTx5eVJ5NUtj6WjuylZXUKFnZtgYXgceAwK0+m7EGSWk1jNW9y2EdAGdWHO4AkAk4RhgxxMZoPT+0mqvky8Jt7q20B7wIkheSenJ5Nds5lMnHeB3XB9U0wVQFmYGTUtRdAxivl2h9q71p9l1mJVAO+mCQPjP2+I6nJp8/aTXlV5EjBCmQCJBrox6t8M5rTjtDjtTtcAFE58az1/Vs3J8fnUXJJk9a8S0WwASfITXbOOZRx1VUDk1JGor+Affs2kMfGrtV2W9sSwnzHSm8p62T8a+AMNSXta5l/GFA+QkyT0hv3NOopbf0jO7/dleQCMKkSD1yfoaXJ9uh8PYqe6oN2Dj4pJBnuKRng5Xpn5TT7SW9gS6xhmdGwdwAVgGg/d2mJBiQZiYpAmhHvmjaBBEAQslW4HjP50yuWwbZRTllMbYUADqfGMD6edc07ezppJaZq2lzLHAPH6zTXS2ECgDnrFINNru4MYInHWRVlrXMpx1xFWc01wRVSnyPdiD7f411I/wCDdslhmupfBfJvm/gR37x34BMAR697+tVve+I92YyBzJ+8T1+nSh3vZ58D8sfqPzqrVXYRz07p+eZ+ZgVw1tpndOk0gvTakfaGOkkAz4imWhvZbJ+zk4nnNYn+07qAEqIJH2YABmDMZ681pdLqvxA/WsjhpbNycrrQ+W5Uxfjg0pGqr3+Kq5Abe9rM+0O3c7YEBc/5jCjPkM+RI8aapcJO0c+EifpQ97TI/wASyfHIPh09B9KR0n9rG8WnyjOaTtBkPccqBmA0cQAu0nPJMk8eYq/VdpMwG9ySAeTyTjCqYMA+AyKZXPZ+22QSPl/SKlZ9mk5bP1P5mPwqL+rvXBZfT752Zy3rNy7IODiP/wCQIo/QKylSiCc7QRtJPipJJHqIrS6bsq2kQsxj9gQDTK2FTEBfKAtTrCv1UWWd61K6EdrVOB37FxsRDKzDxAwN31qrQ20D92ybZIJlp3fa4DZAkH1FaFNShMKwJ9RQXabEXrSxJKuYGcBCZ/fjXNeCJW5e/wDJeM1U9NaJ2ADEcdPTpWgt2iCoA5Q5PHPH78aQaTT3Sq7VYwBkKSMVqLG4i2WWIEEQVOCD1qWZ8cfsDrRndNaX3x8VJP0mj3LPZDspWfskQRgGPqTRZR/e3B/CoqFSEfb9qMExwOa91quLIVV3MRkgE+UwOOKx8tGK9mWvDI9f0NAaEoqH3Vi7Oe9sd2huZPQfOmV+y6soZCCWAyCOcU77K7UT3SnIxOcHnrXROOcvDrWgrI4+1bMR2lcd1O5H2AieT0nhO8P90ilFvXIm7JMnptkEf5gPzHQV9U1OrsuMoGJiDGcGRDDODnmkOt7Cs3CJUjJaGG6JGQDhhJzz0ron02lqaIfiXv8ANIj7B7TaNzOrRJ743YiYgZ3fUYI5Iqy9224U7nZDCzEIpYSxEoZKkAdPLxqbew8nuPHOZkeUgiRjwJ4ojT+xthP8RyxjgBuZ5BkdMRFXVZnw0c7WJcjLsTUPtDqzMCoI3NuIDHd6YDASAJimOr1rsApAM9Z4/oaX6cLZ7lvcFEgBiDAJBgAARwP2as1OqZ4kV1xLSW0clUtvQM9iOTnyzQRUFnG6O8OJJkKsCB6fvodSjtO6EVnYSAx45ABGQegkAfWqZa0kxcU7bQG2pBvADniMThWBxEdfzouxhYIaT9ogkdeInAE4P4zSjTa1WuYDAPgZMiCG9TgVotLpZDHaTBKndmIJzGeAFB9PWuXHTbb38nVklaS18E9IQyKR4R/xJX9KuRMimPY3ZJcNuMbXj1kAn8Sw+RrRWNAiGQoroWZKUjleFumzOqw+61dWo90PCupPq/sP9P8Ac+QBDJziY/pXpHdgTkj8J/rRVnSsYgHnPr4fQfjUUtE4iBIP/IEgeuK4altc9HdDSf7i1LBPM89DAyfCjLaxwIozR6EuD5T8skCfofpV1nR7o8xMekT+dGKfHRuWvLYFJqSmjj2eRXfwRrqOYFu70uSFYmWPwkzhtoEcwfz8qr09vUux7l0Bmx3OJ8z0p5pncCDJjgzBHzq99zRDMOOCIx6g15vjmitykzu88VTqmZp0vqpDC8rjIxtmTwZ+f4VZYtXHKhGvsZIYB+o8COJzE+XnWrtWG++3BEEnqa5ISZMmMcfSQZFZ9T1FceAeGFLfkJdL2FdDy3vtk9brYMc8wRI4PiKrX2bcjAuhvMjOIHIj/wACtGO0TjBxwdx/Z+c1IdozkqZ9ZH0PnS5MPqXzr+gx58U8Ln+RH2b7OOjtggbQe8wBme9EcdPrTwaQM4Nwd9VJVhjAK4acHnw6Hwoi3rNykGRjGzDA+UeXhUOymm6AUxujcwIYz1lj+4rhubVae99HR9R1O+OPgcr2TeJLe+CzwNoMfM0S9hxtDNuic+fiabiqr449a9K/SSo4b2ed9aqfOgW8gK7eBHIwQPI0OulubFVGAAEbj3ifCmDDHFW2xgUY8Ktvbf8AwXzaRl9f2XcVHNy4WTbkLIPI4/c1ntV2KzqFAUIoIARtsdQeZB4yc819E1ibkYeKn8qxwLAH4gPAkMPTMn/xXL6n07nIlG+f+nb6fM2m3rj9jF2ux7gPxEA57qiJMrtJBzz9KJt6W/7ttj3tw2wCBxIEd4meT9K0RSfiPToMfSrA/AEiPCP1HFPEeqXKXQ95sD4fbM/p/wCJDhPf3UTgu6WjMiQAYknpnrTDQa67b3k3t4Hwg2lBYmRllUwZAHUCetNb3Zu9QSeekcfQfiTVA7HdAdhUScAAYHkIjpVvxGeeHH+yH0cdLaoV6vtB9gdnQu8990dQo70SIg8AdPiFKRrzchC+dwLfZxkEx0iJ9YrS3NDfJG66pEzG2fnk8xirU7FLnIBjrA/A1ryZr0nLS/kJnFjT002AWLI2KQ0n0/LyzSTtDRM4bICs7AypYGHbbJXpJjPj1r6BpeyUUd4egnp8qUXOzlcIqmWcuYI7oABYSZmcoflXc3uFLOSeLdIwei0JW7bZihVWtsYIA2lgOIIPBkVudNqfdbihRwHYlVRmJ3EwQy4WcjM9AKo7dVIRwp+BTBjjvNuOfGKYIgLuyq24XwIMzCWwYgc/CSB1IFRlePCK3SpbaC+ymK3XXbtVkRlEg8M4cjrGV5ApoWpRoJW4uQfjSY+yQGTaeoKW/rTG89Vkiy33ldQXvTXVoGes2Ci5GTk+tJXEPcbI2lxmILbGuIF+TN9K7Xau4fiZirHauxwmV5JgLIMjE42nmlPa79xgikNvZu8JjbbGJBicnNLa0h5e2a32d0e62zmRLvE+CsRH13fWvLOkPviAMQxU9JeWYf8AJCfnS7s43rCDY9xlLKmVRV3sSMTJ2gyJ9fCjE7QcXLW7buVrimJ+4wknAg7RAj5+OytpIWnpth9/S7Tkcif+1QWIoyxrQQQ+Z+ePAVVcRCIHJOPKrqflEvL4B0APSiEtijrHZ4ETuby6ekUb/CoeUilpo2d+4Fa7MDmSW2x0gfnUrvYydGYHzg/pTN3IwMUl1HtNYS49t2ynxEKxzjGBHXx8am78e3opMeXSLbHZdvhmJPXIHzxRZ7OtRG35yZ+tILvtMmRZtk9Zyx+ap/WhV7Sv3SZ3hCILKu4L4kqknGeahfqUvt2y8enfvwam3oUXiiLFn+8Seh/Lilq9oqYAaNwhe6SMcncQB0NH9h3S1xpJO1ZHHUkdAPCub8RORqfdtDvE4ls0dQujFTrjXfS2tHEUHIq0cVUBiKuFSwrsZnjCspdtEyMc8z61rKyGtRbN5oOWyB3jjBI6+NT9VkePxpdb5LYEq3JVe0kcNn99aFCwefnSztTtZ0aUIdSS0ZgA5jIH4Hg1Va9oU+FwUP1Hz6iq4fVRa54/k3J6e1yls0ujuGZJq3U6oRAIBpHo9el0Eo0wYPlP7NWNXUkq5Ry03PDQZatOXEnEj6VoEIAgUh0Op2nInzpwHkSKWzZ0TLZpF7Npvlz9hBbU5zMXGP0ZF9VajtRcME+AJ+lIOzO1ms2LalfsKS/xyzkZKiCCXaI86mxl0S9p8I6yAVW70OAFZlH/ABdfpTHs8sNQVJBK2lLebE7Vf/cm4/OsT292jcvXgqusOv8AmRRDqFLZOTCD5U7XtBt6slxtz2raA7C25lJgZUAiWPHiM0m+SjXA37UPurtsr9q4p68ElSB0Eb3+W0dDTF3msvr9dcu2XBQSssjA7CCg3K22WJmCIHnT9NSGUMOCAR6HNOibJ7q6qPeV1aBnm0VvYGDvkhYaD3XG0sNsRLEN6AdazmvLbQDksboxmWVlUkT0k1stcqbGAbO0xA4MYPhzFYntC6O6y5UpcdcTlrqY9I/GafJrWhce29s1Pu982yRt2HPm8qreZADwfGl2n5tkkhg4DieXVWtkR5GfM46UB2f7Qv71LbIrG4w70kESB08P+9O9bZKXFx3XdHkffDJbIPkQyn1BppqWtyLU0npjFnnmoo8GaltrzbViAYnaLxG6rrPaDT3jIpdtqS0rmR5bHJ1U8Uoudi2WcuwEkloAUCTyZjdPoRRNkboVQST8qJu6dkQMeeo8BUKmemXmqXKZ7odFaXhFMdSNxHoWmmLv0io6BCFlhHl+tSe6CYHI/GpNL2KJt9mds3vfuFVHRxKklNuAQ2QSDHeB+da/sXs82gZYsTGTHST09aA0OmhmYjvEyT44AH0AA+VaC1wK4fT4k8zpvbRfPlblSuiya8rq6vSOQgFzU66upVKXQHTWW9otiXAzhipWSACcgxOPL861FLu1NH7wKYnaZjoeo/EA/Ko+ph1HHaaZTFSmtsz+l0iXEDAFQS0AiMSYMGo3/Zyy4hp46Rz48RTK9cPHWqUuwczWzCcpPkerfk2uBd2X7NW7JcqSd8ZyICz0mPtfhTJOzUEzJ9akdR0rv4iqz+VaknT8ntkh2enh86sW0FEdKoGrAIUnJBIHUgRJHpIq4XQR1o22ZpAXazxbc+COfoprOPod7Lb3kkqxaQIEAKDA5X4s+O3yp97QA/w93pNq4PPKEcUt7PQIlzUMvAYAAbSVtDaSJ4DMrH0isbD2E3a10++077SJXdAgzD2mII8TnHpV9oB3TcncWw5MTH/45K+e0HPQtNJNR7RI7o4tlVQuIY523G3HMY2kfj0rU3XRfdLuWHusoPXY4ddpA+6iqPmtLtPody1rZ4ujZNgdo2hUZQBk4KHPILSPIk0z7J049wgJkoChPnbY2z+KGiO0NEjrv3SVmIyc9RH2hyPSMTQPs5fD236RdcgdBvhyB6M7Cf8ALTe4naDv4YeNdUtxr2mFMwmkLMBc967cRvXZKrJIG5R0Ejw20l9o+z0VFdFICqBtNswdzmWDcALE45x4VsNRp2QbhJZYYkcsIKPnpgz9KXdv3/8A25BiP7sRJn7R8MSTUKR0S3sz6diEKrBbpgqCY2DeSIyxwPyimmq7H1HdkoNty2Y+2CCG6YK5gkma0GmX3iBWA27JkZ7zSEYSBEAN9RVNu6WQsd29VKuSZEo0nBHJIB54NNK8VwK68nyG6XsUhQHfcepjz4EmfKjm7NQ4gQP3zVy6nxqptXBq3nRHxkX6zs4rtlwF3QfLdgEHyMY6+VU2tKhkSVG6ZKiTIj4gTu4EExijtZcVwJ5BBjkY8RQNrSktCHaPDJHicTzXNlrMq3J0Y1ic6phlpbSElWzEZYVJNSpPeKkeEj+tU3NK6jhes5if/iaq0ukBJ94uOgn9YFTrNlnmkiiwYn9rZbrdeTxxVfZlprhndEH1/fSl/a/Y21QVIJLAQVGAWGZJz6VrezLShVVVCqB0AHHXFT/EVXGtBWKYXknsM06QoBopTiohKyftf22Ei2pIIy0fgKrH/knVHPMvJWkatb6kkAgkdJFTDA8Zr5IvbLTIJo7T+19xBAOPA5rJ9X8o6K9I/Zn0+hr2sRWCkiT+HrWCt+278GOtLNb2/uaRPz6zRXqm1+Vf2ZPpXv8AM/6PqyMCJBkV61fOeyfaZgwzicz4VsV7aSRPB600+pTWqWhL9PcvjkYXEBEEUkbTQzSeOlNU1qsu4GR4VRuDEEgCZ+dSvJp7lmQmtqkKnvIOXQHwkT8xXfxCfeFVdq6VQwYyA3hHI8yDVmltp4kzGN3H0Appy5q+1IdxiXLbKNTq18JQK5Odo7ok8jy6GmWjBCLMnAgnk45NVtpbcRtXgieTkQcnyrr2sVFgEYAHpFVxTkVN0JkqWkpFXtalz3Te7IMqVOYILQARgz6Y5rO3zqAgDBkTabYH+IO+AinuNJPIGOvFNe1NUzIQDkskT/rWlVwu7bd/K9QMdAR6CfmRVKT2LLWjLa3RBQqq6GXYEEFAAoJDGM5hh9PHD23eN1ELM7MrlpG5oYkiRtUQdpHJ5ovU33YJKxLmIIkbkYEE9BM/jQ2lM2wpEy7bvQtu/UD51Jzpsr5eSTJWdVqYBD7pgg3EUQG4MgrknHzq/sS5fW84IAV9jkbgQoyGAEGCQRiceOcT2ZeIAYbeDAYSQB4CW+vrRGhMOhmZVlJiO+drf9B+tVSaJtprhGg94a6qfe+ldVSRPtPj/afzSsj2vmwJz3rfOeoryuqLKyavsf4H/wBS/wAiVTqEH/usD4VPHXZzXV1M+hZ7GOu+I+tL2ryup5ELE4o/s+urqGCOvn8qE0p7yfL8q8rq4fV/pO3036gvX/4i/vwp1pen76V5XVxx9z/kbP8AYv4DL3wt/pP5GvknbLEuZM565rq6u3P7E/S+4pf9KCHx/OurqmzpR4/xVNeK6urF2YEWK1XZzHYueldXUmQaTS9j8D0H5Vep7p9a6uqT9hH2/wDBV27/AII9R+tK+z/iryur0PTfaziy9oYXKB1Ne11dKJCvX/B/uT+Zao0HxP8AL8q6uof3DfpJXfit/wD7X/K5Q+i/wn9D/wBNdXVOux56GN3/AA3+f60s0HxJ/rH8hrq6mr2Fnpmgrq6uqhI//9k=">
+            <h2>News</h2>
+            <a href="#" class="post-title">ISRO successfully pushes Chandrayaan 3 towards moon. </a><br>
+            <span class="post-date"> 2 Aug 2023</span><br>
+            <p>Chandrayaan-3 is a follow-on mission to Chandrayaan-2 to demonstrate end-to-end capability in safe
+                landing and roving on the lunar surface. It consists of Lander and Rover configuration. It will be
+                launched by LVM3 from SDSC SHAR, Sriharikota. The propulsion module will carry the lander and rover
+                configuration till 100 km lunar orbit.
+            </p>
+
+        </div>
+
+        <div class="post-box news">
+            <img
+                src="https://th-i.thgim.com/public/incoming/mepb8l/article67148967.ece/alternates/LANDSCAPE_960/IMG_Communal_violence_in_2_1_R8BIG0SF.jpg">
+            <h2>News</h2>
+            <a href="#" class="post-title">Haryana communal violence | There can not be destruction of property or
+                life</a><br>
+            <span class="post-date">2 Aug 2023</span><br>
+            <p>Four people, including two home guards, died and many others were injured in Nuh district of Haryana
+                where mobs tried to stop a Vishva Hindu Parishad procession, while a naib imam was killed at a mosque in
+                Gurugram on Tuesday</p>
+
+        </div>
+
+        <div class="post-box news">
+            <img
+                src="https://images.indianexpress.com/2023/07/Bengaluru-man-tweets-about-paying-more-than-50-of-income-as-tax.jpg?w=640">
+            <h2>News</h2>
+            <a href="#" class="post-title">Bengaluru man tweets about paying more than 50% of income as tax, sparks
+                chatter online</a><br>
+            <span class="post-date">2 Aug 2023</span><br>
+            <p>“Today I earned Rs 5000. I had to give 30% to the Government as tax. I thought of buying some caffeinated
+                beverages from the remaining money & had to give 28% as tax. I realized I am working 12 hrs a day just
+                to pay 50%+ of my income to the Government,” the tweet said.</p>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="about">
+                <h2>About Us</h2><br>
+                <p>Blogs Stream provides the trending and interesting blogs to you.We provide the best content of blogs
+                    in
+                    different field.
+                    This is free to use website to read more interesting blogs which enhance your knowledge.
+                </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-square-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+                        <p>Greater Noida <br>New Delhi
+                            <br>INDIA
+                        </p>
+                    </li>
+                    <li>
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        <p><a href="blogger@gmail.com">bloggerShreyash@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="file.js"></script>
+</body>
+
+</html>
